@@ -1,0 +1,7 @@
+{
+  "apiBase": "http://www.forumdoc.org.br/wp-json/wp/v2",
+  "apiMovies": "/movie",
+  "apiMovie": "/movie/:id",
+  "apiMoviesByCategory": "/movie?movie_cat=:id",
+  "apiMediaItem": "/media/:id"
+}
