@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, FlatList, StyleSheet } from 'react-native';
+import { Text, View, FlatList } from 'react-native';
 import { Container, Heading, HeadingText, ListContainer, ListItem, ListItemSeparator } from './styles';
 import Header from "../../organism/Header";
 

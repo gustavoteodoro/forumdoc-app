@@ -1,11 +1,6 @@
 import styled from 'styled-components';
 
-export const HomeContainer = styled.View`
-  background: pink;
+export const Container = styled.View`
+  background: white;
   flex: 1;
-  align-items: center;
-`;
-
-export const HomeTitle = styled.Text`
-  font-size: 40;
 `;
