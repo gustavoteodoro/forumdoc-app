@@ -3,37 +3,43 @@ import { Container } from './styles';
 import { ScrollView } from "react-native";
 import Header from "../../organism/Header";
 import MovieItem from "../../molecules/MovieItem";
+import API from "../../../services/api";
 
 export default class Home extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      movies: []
+    }
+  }
+
+  componentDidMount() {
+    API.getMovies().then((data) => {
+      this.setState({
+        movies: data
+      });
+    });
+  }
+
   render() {
     return (
       <Container>
         <Header />
         <ScrollView style={{flex: 1, marginBottom: 15}}>
-          <MovieItem
-            image={'http://www.forumdoc.org.br/wp-content/uploads/2017/11/36_YAOKWA_Bb-150x150.jpg'}
-            title={'TITLE (2015)'}
-            description={'Lorem ispum dolor sit amet etc etc blabla hey hey hahah huhu hihi kkk hahaha'}
-            country={'País: Brasil'}
-            location={'Cine Humberto Mauro'}
-            time={'17:00h'}
-          />
-          <MovieItem
-            image={'http://www.forumdoc.org.br/wp-content/uploads/2017/11/36_YAOKWA_Bb-150x150.jpg'}
-            title={'TITLE (2015)'}
-            description={'Lorem ispum dolor sit amet etc etc blabla hey hey hahah huhu hihi kkk hahaha'}
-            country={'País: Brasil'}
-            location={'Cine Humberto Mauro'}
-            time={'17:00h'}
-          />
-          <MovieItem
-            image={'http://www.forumdoc.org.br/wp-content/uploads/2017/11/36_YAOKWA_Bb-150x150.jpg'}
-            title={'TITLE (2015)'}
-            description={'Lorem ispum dolor sit amet etc etc blabla hey hey hahah huhu hihi kkk hahaha'}
-            country={'País: Brasil'}
-            location={'Cine Humberto Mauro'}
-            time={'17:00h'}
-          />
+          {this.state.movies.map((movie, i) => {
+            return (
+              <MovieItem
+                image={movie.media1.media_details.sizes.thumbnail.source_url}
+                title={movie.title + ' (' + movie.year + ')'}
+                description={movie.content}
+                country={movie.country}
+                location={movie.showtime ? movie.showtime[0].name : '?'}
+                time={movie.showtime ? movie.showtime[0].time : '?'}
+                key={i}
+              />
+            )
+          })}
         </ScrollView>
       </Container>
     );

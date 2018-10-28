@@ -12,6 +12,8 @@ async function movieResolver(movie) {
     slug: movie.slug,
     title: movie.title.rendered,
     categories: movie.movie_cat,
+    country: movie.themeum_movie_type,
+    content: movie.content.rendered.replace(/<(?:.|\n)*?>/gm, '').substring(0, 75),
     media1: mediaResolver(await ForumDocWpService.getMedia(movie.featured_media)),
     media2: mediaResolver(await ForumDocWpService.getMedia(parseInt(movie.themeum_movie_image_cover, 10))),
     year: movie.themeum_movie_release_year,
