@@ -2,14 +2,16 @@ import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from 'react-navigation';
 import Home from '../../pages/Home';
-import Calendar from '../../pages/Calendar';
-import MyMovies from '../../pages/MyMovies';
+import Filmes from '../../pages/Calendar';
+import Mostras from '../../pages/Categories';
+import Favoritos from '../../pages/MyMovies';
 
 export default createBottomTabNavigator(
   {
     Home,
-    Calendar,
-    MyMovies,
+    Filmes,
+    Mostras,
+    Favoritos,
   },
   {
     navigationOptions: ({ navigation }) => ({
@@ -18,13 +20,15 @@ export default createBottomTabNavigator(
         let iconName;
         if (routeName === 'Home') {
           iconName = `ios-home`;
-        } else if (routeName === 'Calendar') {
-          iconName = `ios-calendar`;
-        } else if (routeName === 'MyMovies') {
+        } else if (routeName === 'Filmes') {
+          iconName = `ios-film`;
+        } else if (routeName === 'Mostras') {
+          iconName = `ios-albums`;
+        } else if (routeName === 'Favoritos') {
           iconName = `ios-heart`;
         }
 
-        return <Ionicons name={iconName} size={horizontal ? 20 : 25} color={tintColor} />;
+        return <Ionicons name={iconName} size={22} color={tintColor} />;
       },
     }),
     tabBarOptions: {
