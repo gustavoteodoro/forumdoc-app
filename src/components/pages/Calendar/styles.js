@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
-export const HomeContainer = styled.View`
-  background: green;
+export const Container = styled.View`
+  background: white;
   flex: 1;
-  align-items: center;
 `;

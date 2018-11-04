@@ -29,7 +29,7 @@ export default class MovieItem extends Component {
           </MovieItemImageContainer>
           <MovieItemTextContainer>
             <MovieItemTitle>{this.props.title}</MovieItemTitle>
-            <MovieItemDescription>{this.props.description}</MovieItemDescription>
+            <MovieItemDescription>{this.props.description}...</MovieItemDescription>
             <MovieItemCountry>{this.props.country}</MovieItemCountry>
           </MovieItemTextContainer>
         </MovieItemContent>

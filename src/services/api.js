@@ -3,7 +3,8 @@ import {
   apiMovies,
   apiMovie,
   apiMoviesByCategory,
-  apiMediaItem
+  apiMediaItem,
+  movieCat2018
 } from "../../config.json";
 import movieListResolver from "./movieListResolver";
 import movieResolver from "./movieResolver";
@@ -20,7 +21,7 @@ export default {
   },
 
   getMovies: async function() {
-    return await this.fetchGet(apiBase + apiMovies, movieListResolver);
+    return await this.fetchGet(apiBase + apiMoviesByCategory.replace(':id', movieCat2018), movieListResolver);
   },
 
   getSingleMovie: async function(movieId) {

@@ -1,29 +1,28 @@
 import React, { Component } from 'react';
 import { Text, View, FlatList } from 'react-native';
-import { Container, Heading, HeadingText, ListContainer, ListItem, ListItemSeparator } from './styles';
-import Header from "../../organism/Header";
+import { Container, ListContainer, ListItem, ListItemSeparator } from './styles';
+import config from "../../../../config.json";
+import Heading from "../../molecules/Heading";
 
 export default class Categories extends Component {
   render() {
     return (
       <Container>
-        <Header />
-        <Heading>
-          <HeadingText>MOSTRAS</HeadingText>
-        </Heading>
+        {/* Temporary */}
+        <View style={{
+          height: 70,
+          backgroundColor: '#9EBDA9',
+          alignItems: 'center',
+          justifyContent: 'center',
+          paddingTop: 20
+        }}>
+          <Text style={{fontWeight: 'bold', fontSize: 16, color: 'white'}}>Forumdoc.bh.2018 </Text>
+        </View>
+        <Heading text={'MOSTRAS'} />
         <ListContainer>
           <FlatList
-            data={[
-              {key: 'Devin'},
-              {key: 'Jackson'},
-              {key: 'James'},
-              {key: 'Joel'},
-              {key: 'John'},
-              {key: 'Jillian'},
-              {key: 'Jimmy'},
-              {key: 'Julie'},
-            ]}
-            renderItem={({item}) => <ListItem>{item.key}</ListItem>}
+            data={config.mostras}
+            renderItem={({item}) => <ListItem key={item.key}>{item.title}</ListItem>}
             ItemSeparatorComponent={() => <ListItemSeparator />}
           />
         </ListContainer>

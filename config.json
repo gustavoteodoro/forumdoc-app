@@ -1,7 +1,26 @@
 {
   "apiBase": "http://www.forumdoc.org.br/wp-json/wp/v2",
-  "apiMovies": "/movie",
+  "apiMovies": "/movie?per_page=100",
   "apiMovie": "/movie/:id",
-  "apiMoviesByCategory": "/movie?movie_cat=:id",
-  "apiMediaItem": "/media/:id"
+  "apiMoviesByCategory": "/movie?movie_cat=:id&per_page=100",
+  "apiMediaItem": "/media/:id",
+  "movieCat2018": 180,
+  "mostras": [
+    {
+      "key": "185",
+      "title": "Mostra Contemporânea Internacional"
+    },
+    {
+      "key": "183",
+      "title": "Mostra Contemporânea Nacional"
+    },
+    {
+      "key": "184",
+      "title": "Mostra Ebo Eje"
+    },
+    {
+      "key": "182",
+      "title": "Sessões especiais"
+    }
+  ]
 }
